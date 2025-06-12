@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>htnml Events </title>
+    <title>HTML Events </title>
 </head>
 <body style="background-color: #414141; color: aliceblue;">
     <h2>Amazing image</h2>
@@ -19,13 +19,33 @@
    </div>
 </body>
 <script>
-    document.getElementById("owl").addEventListener('click',(event)=>{
+    document.getElementById("owl").addEventListener('click',(event)=>{// addevent listener listens to all kinds of event
         // event object 
-        console.log(event);// details about event such as x,y coordinates timestamp etc
+        console.log("Clicked owl");// details about event such as x,y coordinates timestamp etc
         // read about type, timestamp,default prevented, clientX, clientY
         // altkey,shift,keycodef
-    },false)
+        event.stopPropagation();// it stops propagation from inside to outside
+
+    },false) // default is false false is event bubbling(inside to outside)  
+    
+    const unorderlist=document.getElementById("images")
+     unorderlist.addEventListener("click",(event)=>{
+       console.log("CLicked inside ul");
+       event.stopPropagation();// it stops propagation from inside to outside
+       
+     },false)
+     const stop=document.querySelector("#google")
+     stop.addEventListener("click",(event)=>{
+     event.preventDefault()
+
+     })
+    document.querySelector("#images").addEventListener("click",(event)=>{ // remove an element on clicking
+      console.log(event.target.parentNode);
+      event.target.parentNode.remove()
+      
+    }) 
     
    
 </script>
 </html>
+// event.target gives which html element in frontend triggered the event            

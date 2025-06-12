@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CHAI AUR CODE</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+   setTimeout(()=>{
+       console.log("HI")
+   },2000)// prints only once after 2 seconds
+   const changetext=function(){
+   document.querySelector("h1").innerHTML="Best series for JS"
+   } 
+   
+   const change= setTimeout(changetext,4000)// changes text after 4seconds
+   
+   document.querySelector("button").addEventListener("click",(event)=>{// prevents change if button is click
+    clearTimeout(change)
+   })
+   
+
+    
+</script>
+</html>
+clearInterval and cleartimeout
